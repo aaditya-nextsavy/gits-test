@@ -112,13 +112,14 @@ const TestimonialsSection = () => {
           loop: true,
           gap: '24px',
           arrows: true,
-          center: true,
-          pagination: false,
+          center: false,
+          pagination: true,
           drag: true,
           breakpoints: {
             1024: { perPage: 2 },
             640: { perPage: 1 },
           },
+
         }}
         className="testimonials__slider marquee-edge-shadow"
       >
@@ -154,3 +155,4 @@ const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
+

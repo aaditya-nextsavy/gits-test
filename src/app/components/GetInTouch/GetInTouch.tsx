@@ -2,6 +2,67 @@
 
 import React, { useState } from 'react';
 import { HiMiniChevronRight } from "react-icons/hi2";
+import { AiOutlineMail } from "react-icons/ai";
+
+
+type Option = {
+    label: string;
+    value: string;
+};
+
+type CustomSelectProps = {
+    name: string;
+    value: string;
+    options: Option[];
+    placeholder: string;
+    onChange: (name: string, value: string) => void;
+};
+
+const CustomSelect = ({
+    name,
+    value,
+    options,
+    placeholder,
+    onChange,
+}: CustomSelectProps) => {
+    const [open, setOpen] = useState(false);
+
+    const selectedLabel =
+        options.find((opt) => opt.value === value)?.label || '';
+
+    return (
+        <div className="custom-select">
+            <button
+                type="button"
+                className={`custom-select-trigger ${open ? 'open' : ''}`}
+                onClick={() => setOpen(!open)}
+            >
+                <span className={!value ? 'placeholder' : ''}>
+                    {value ? selectedLabel : placeholder}
+                </span>
+                <span className={`chevron ${open ? 'rotate' : ''}`} />
+            </button>
+
+            {open && (
+                <div className="custom-select-dropdown">
+                    {options.map((option) => (
+                        <div
+                            key={option.value}
+                            className="custom-select-option"
+                            onClick={() => {
+                                onChange(name, option.value);
+                                setOpen(false);
+                            }}
+                        >
+                            {option.label}
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
 
 
 type FormState = {
@@ -62,6 +123,12 @@ export default function GetInTouch() {
         return newErrors;
     };
 
+    const handleCustomChange = (name: string, value: string) => {
+        setForm((prev) => ({ ...prev, [name]: value }));
+        setErrors((prev) => ({ ...prev, [name]: '' }));
+    };
+
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const validationErrors = validate();
@@ -95,6 +162,7 @@ export default function GetInTouch() {
 
                     {/* Left */}
                     <div className="contact-info col-span-12 lg:col-span-4">
+
                         <div className="contact-into-title">
                             <h2>Get In Touch</h2>
                             <p>
@@ -104,11 +172,14 @@ export default function GetInTouch() {
                         </div>
 
                         <ul className="contact-info-list">
+
+                            {/* whatsapp */}
+
                             <li className='w-full '>
                                 <a className="flex w-full flex-row items-center justify-between" href="https://wa.me/919311538385">
                                     <div className='flex flex-row gap-3'>
                                         <div>
-                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-whatsapp.webp" />
+                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-whatsapp.svg" />
                                         </div>
                                         <div className='contact-social-links'>
                                             <h5 className='mb-2.5'>WhatsApp</h5>
@@ -125,20 +196,21 @@ export default function GetInTouch() {
 
                             </li>
 
-                            <div className="faq-divider my-8">
+                            <div className="faq-divider my-6 lg:my-8">
                                 <img alt="divider icon" className="faq-divider-line" src="/assets/images/faq-dashed-line.svg" />
                             </div>
 
 
+                            {/* contact us */}
                             <li className='w-full '>
-                                <a className="flex w-full flex-row items-center justify-between" href="https://wa.me/919311538385">
+                                <a className="flex w-full flex-row items-center justify-between" href="tel:+919311358385">
                                     <div className='flex flex-row gap-3'>
                                         <div>
-                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-whatsapp.webp" />
+                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-phone.svg" />
                                         </div>
                                         <div className='contact-social-links'>
-                                            <h5 className='mb-2.5'>WhatsApp</h5>
-                                            <p >Chat With Us</p>
+                                            <h5 className='mb-2.5'>Call Us</h5>
+                                            <p >+91 9311358385</p>
                                         </div>
 
                                     </div>
@@ -151,46 +223,21 @@ export default function GetInTouch() {
 
                             </li>
 
-                            <div className="faq-divider my-8">
-                                <img alt="divider icon" className="faq-divider-line" src="/assets/images/faq-dashed-line.svg" />
-                            </div>
-
-                            <li className='w-full '>
-                                <a className="flex w-full flex-row items-center justify-between" href="https://wa.me/919311538385">
-                                    <div className='flex flex-row gap-3'>
-                                        <div>
-                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-whatsapp.webp" />
-                                        </div>
-                                        <div className='contact-social-links'>
-                                            <h5 className='mb-2.5'>WhatsApp</h5>
-                                            <p >Chat With Us</p>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <HiMiniChevronRight />
-                                    </div>
-                                </a>
-
-
-
-                            </li>
-
-                            <div className="faq-divider my-8">
+                            <div className="faq-divider my-6 lg:my-8">
                                 <img alt="divider icon" className="faq-divider-line" src="/assets/images/faq-dashed-line.svg" />
                             </div>
 
 
-
+                            {/* email  */}
                             <li className='w-full '>
-                                <a className="flex w-full flex-row items-center justify-between" href="https://wa.me/919311538385">
+                                <a className="flex w-full flex-row items-center justify-between" href="mailto:info@globalitsuccess.com">
                                     <div className='flex flex-row gap-3'>
                                         <div>
-                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-whatsapp.webp" />
+                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-email.svg" />
                                         </div>
                                         <div className='contact-social-links'>
-                                            <h5 className='mb-2.5'>WhatsApp</h5>
-                                            <p >Chat With Us</p>
+                                            <h5 className='mb-2.5'>Email Us</h5>
+                                            <p >info@globalitsuccess.com</p>
                                         </div>
 
                                     </div>
@@ -203,7 +250,37 @@ export default function GetInTouch() {
 
                             </li>
 
-                            <div className="faq-divider my-8">
+                            <div className="faq-divider my-6 lg:my-8">
+                                <img alt="divider icon" className="faq-divider-line" src="/assets/images/faq-dashed-line.svg" />
+                            </div>
+
+
+                            {/* maps  */}
+                            <li className='w-full '>
+                                <a className="flex w-full flex-row items-center justify-between" href="https://maps.app.goo.gl/8XAZgfZkc1oPvNDs6"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <div className='flex flex-row gap-3'>
+                                        <div>
+                                            <img alt="divider icon" width={54} height={54} className="rounded-full faq-divider-line" src="/assets/images/getInTouch-location.svg" />
+                                        </div>
+                                        <div className='contact-social-links'>
+                                            <h5 className='mb-2.5'>Visit Us</h5>
+                                            <p >Go to Maps</p>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <HiMiniChevronRight />
+                                    </div>
+                                </a>
+
+
+
+                            </li>
+
+                            <div className="faq-divider my-6 lg:my-8">
                                 <img alt="divider icon" className="faq-divider-line" src="/assets/images/faq-dashed-line.svg" />
                             </div>
 
@@ -249,7 +326,7 @@ export default function GetInTouch() {
                                     onChange={handleChange}
                                     placeholder="Enter Full Name"
                                 />
-                                {errors.fullName && <span>{errors.fullName}</span>}
+                                {errors.fullName && <span className="error-msg">{errors.fullName}</span>}
                             </div>
 
                             <div className="form-field">
@@ -260,7 +337,7 @@ export default function GetInTouch() {
                                     onChange={handleChange}
                                     placeholder="Enter Email ID"
                                 />
-                                {errors.email && <span>{errors.email}</span>}
+                                {errors.email && <span className="error-msg">{errors.email}</span>}
                             </div>
 
                             <div className="form-field">
@@ -271,37 +348,56 @@ export default function GetInTouch() {
                                     onChange={handleChange}
                                     placeholder="Enter Mobile Number"
                                 />
-                                {errors.mobile && <span>{errors.mobile}</span>}
+                                {errors.mobile && <span className="error-msg">{errors.mobile}</span>}
                             </div>
+
 
                             <div className="form-field">
                                 <label>Country</label>
-                                <select name="country" value={form.country} onChange={handleChange}>
-                                    <option value="">Select Country</option>
-                                    <option value="india">India</option>
-                                    <option value="usa">USA</option>
-                                </select>
-                                {errors.country && <span>{errors.country}</span>}
+                                <CustomSelect
+                                    name="country"
+                                    value={form.country}
+                                    placeholder="Select Country"
+                                    options={[
+                                        { label: 'India', value: 'india' },
+                                        { label: 'USA', value: 'usa' },
+                                    ]}
+                                    onChange={handleCustomChange}
+                                />
+
+                                {errors.country && <span className="error-msg">{errors.country}</span>}
                             </div>
 
                             <div className="form-field">
                                 <label>Vendor</label>
-                                <select name="vendor" value={form.vendor} onChange={handleChange}>
-                                    <option value="">Select Vendor</option>
-                                    <option value="cisco">Cisco</option>
-                                    <option value="microsoft">Microsoft</option>
-                                </select>
-                                {errors.vendor && <span>{errors.vendor}</span>}
+                                <CustomSelect
+                                    name="vendor"
+                                    value={form.vendor}
+                                    placeholder="Select Vendor"
+                                    options={[
+                                        { label: 'Cisco', value: 'cisco' },
+                                        { label: 'Microsoft', value: 'microsoft' },
+                                    ]}
+                                    onChange={handleCustomChange}
+                                />
+
+                                {errors.vendor && <span className="error-msg">{errors.vendor}</span>}
                             </div>
 
                             <div className="form-field">
                                 <label>Course</label>
-                                <select name="course" value={form.course} onChange={handleChange}>
-                                    <option value="">Select Course</option>
-                                    <option value="ccna">CCNA</option>
-                                    <option value="azure">Azure</option>
-                                </select>
-                                {errors.course && <span>{errors.course}</span>}
+                                <CustomSelect
+                                    name="course"
+                                    value={form.course}
+                                    placeholder="Select Course"
+                                    options={[
+                                        { label: 'CCNA', value: 'ccna' },
+                                        { label: 'Azure', value: 'azure' },
+                                    ]}
+                                    onChange={handleCustomChange}
+                                />
+
+                                {errors.course && <span className="error-msg">{errors.course}</span>}
                             </div>
 
                             <div className="form-field full-width">
@@ -312,11 +408,11 @@ export default function GetInTouch() {
                                     onChange={handleChange}
                                     placeholder="Write a message..."
                                 />
-                                {errors.message && <span>{errors.message}</span>}
+                                {errors.message && <span className="error-msg">{errors.message}</span>}
                             </div>
                         </div>
 
-                        <button type="submit" disabled={isSubmitting}>
+                        <button type="submit" className='btn-primary mt-4 lg:mt-6' disabled={isSubmitting}>
                             {isSubmitting ? 'Sending...' : 'Get In Touch'}
                         </button>
                     </form>

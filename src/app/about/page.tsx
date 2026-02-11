@@ -7,6 +7,14 @@ import ImageContentSection from '../components/ImageContentSection/ImageContentS
 import TrustedPartner from '../components/TrustedPartner/TrustedPartner '
 import AboutBannerSection from '../components/AboutBanner/AboutBanner'
 import DiscoverCertificates from '../components/DiscoverCertificates/DiscoverCertificates'
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: " About Us | Global IT Success",
+  description: "Learn more about Global IT Success and our certification programs.",
+  keywords: ["IT Certification", "Exam Vouchers", "Cisco", "Microsoft"],
+};
 
 const page = () => {
     return (

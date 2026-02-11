@@ -10,6 +10,14 @@ import TestimonialsSection from "./components/TestimonialSection/TestimonialSect
 import TopContactBar from "./components/TopContactBar/TopContactBar";
 import UsefulBlogs from "./components/UsefulBlogs/UsefulBlogs";
 import WhyTrustGits from "./components/WhyTrustGits/WhyTrustGits";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Global IT Success",
+  description: "Learn more about Global IT Success and our certification programs.",
+  keywords: ["IT Certification", "Exam Vouchers", "Cisco", "Microsoft"],
+};
 
 export default function Home() {
   return (
