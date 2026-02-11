@@ -1489,6 +1489,10 @@ html:focus-visible {
 
 
 /* FAQ Wrapper */
+.faq-section-wrapper {
+  padding: 80px 0;
+}
+
 .faq-wrapper {
 
   display: flex;
@@ -1535,6 +1539,10 @@ html:focus-visible {
 }
 
 @media (max-width: 768px) {
+  .faq-section-wrapper {
+    padding: 50px 0;
+  }
+
   .faq-tabs {
     gap: 6px;
   }
@@ -1544,7 +1552,8 @@ html:focus-visible {
     font-weight: 600;
     font-size: 14px;
   }
-  .faq-header{
+
+  .faq-header {
     gap: 20px;
   }
 }
@@ -1684,9 +1693,10 @@ html:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .faq-question{
+  .faq-question {
     text-align: start;
   }
+
   .faq-item.open .faq-answer {
     max-width: 90%;
   }
