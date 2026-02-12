@@ -3359,3 +3359,191 @@ html:focus-visible {
   }
 
 }
+
+
+
+
+/* Achievements Page */
+
+.left-right-img-info-section {
+  padding: 78px 0;
+}
+
+.left-right-img-info-section .image-content img {
+  border-radius: 20px;
+  object-fit: contain;
+
+}
+
+.left-right-img-info-section .info-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  gap: 48px;
+}
+
+.left-right-img-info-section .info-content h2 {
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  letter-spacing: -1px;
+}
+
+.left-right-img-info-section .info-content h3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  /* margin: 48px 0 16px; */
+  letter-spacing: -0.5px;
+
+}
+
+.left-right-img-info-section .info-content p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0;
+}
+
+.content-title {}
+
+.content-description {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+}
+
+.left-right-info-container {
+  gap: 6%;
+}
+
+.left-right-info-container-wrapper {
+  max-width: 1356px;
+  margin: 0 auto;
+}
+
+.left-right-info-container-wrapper:nth-child(even) .left-right-info-container {
+  flex-direction: row-reverse;
+}
+
+@media (max-width:1024px) {
+  .left-right-info-container-wrapper:nth-child(even) .left-right-info-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width:768px) {
+  .left-right-img-info-section {
+    padding: 48px 0;
+  }
+
+  .left-right-img-info-section .info-content h2 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -1px;
+
+  }
+
+  .left-right-img-info-section .image-content img {
+    max-height: 350px;
+  }
+
+  .left-right-img-info-section .info-content h3 {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+
+  }
+
+  .left-right-img-info-section .info-content p {
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0%;
+
+  }
+
+  .left-right-img-info-section .info-content {
+    gap: 16px;
+  }
+
+}
+
+
+
+
+
+/* bulk voucher cta */
+
+.bulk-voucher-cta-wrapper {
+  margin: 72px 0;
+  background: linear-gradient(93.04deg, #EEF3FC 0.27%, #D4E0F7 100%);
+
+}
+
+.bulk-voucher-cta {
+  padding: 34px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.bulk-voucher-cta-title h3 {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -1px;
+
+}
+
+.bulk-voucher-cta-title h3 b {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -1px;
+}
+
+@media (max-width:768px) {
+  .bulk-voucher-cta-wrapper {
+    margin: 48px 0
+  }
+
+  .bulk-voucher-cta {
+    padding: 42px 0;
+  }
+
+
+
+  .bulk-voucher-cta-title h3 {
+
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -1px;
+    text-align: center;
+
+
+  }
+
+  .bulk-voucher-cta-title h3 b {
+    font-weight: 600;
+  }
+
+
+}
+
+
+
+
+/* internatinal hero banner */
+
+.hero__slide.international-page {
+  padding: 74px 0;
+}
+
+
+@media (max-width:768px) {
+  .hero__slide.international-page {
+    padding: 24px 0;
+  }
+
+}

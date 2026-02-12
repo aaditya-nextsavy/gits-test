@@ -16,7 +16,7 @@ const AboutBannerSection = () => {
                 <img
                     alt="Background shapes"
                     className="about-bg-gradient absolute left-0 top-0 bottom-0 right-0 z-0 w-full h-full"
-                    src="/assets/images/about-hero-gradient.svg"
+                    src="/assets/images/about-hero-gradient.svg"    
                 />
 
 

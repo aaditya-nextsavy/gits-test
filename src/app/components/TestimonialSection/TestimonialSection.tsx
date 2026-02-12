@@ -139,7 +139,7 @@ const TestimonialsSection = () => {
                 <div className="avatar">{item.initial}</div>
                 <div>
                   <strong>{item.name}</strong>
-                  <div className="stars">
+                  <div className="stars"> 
                     {'★'.repeat(item.rating)}
 
                   </div>
