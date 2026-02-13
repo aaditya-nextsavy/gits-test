@@ -92,7 +92,7 @@ const UsefulBlogs = () => {
 
           <div className="common__blogs__grid">
             {blogsData.map((blog) => (
-              <article key={blog.id} className="common__blog-card">
+              <Link href="#" key={blog.id} className="common__blog-card">
                 <div className="common__blog-card__image">
                   <img src={blog.image} alt={blog.title} />
 
@@ -118,13 +118,13 @@ const UsefulBlogs = () => {
 
                 </div>
                 <div className='common__blog-card__link'>
-                  <a href="#" className="secondary-btn-link inline-flex  justify-center items-center ">
+                  <div className="secondary-btn-link inline-flex  justify-center items-center ">
                     Call our experts <span className='secondary-link-arrow'> <CgChevronRight /></span>
-                  </a>
+                  </div>
                 </div>
 
 
-              </article>
+              </Link>
             ))}
           </div>
 

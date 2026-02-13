@@ -17,7 +17,7 @@ const TopContactBar = () => {
                 <a href="tel:+919999999999"><span className="mr-1"><FiPhone /> </span>+91 99999 99999 <span className="hover-arrow"><HiOutlineChevronRight />
                 </span></a>
                 <a href="https://wa.me/9311358385 " target="_blank" rel="noopener">
-                    <span className="mr-1"><FaWhatsapp /></span> +91 9311358385 <span className="hover-arrow"><HiOutlineChevronRight />
+                    <span className="mr-1"><FaWhatsapp className="text-[#6BD65F] " /></span> +91 9311358385 <span className="hover-arrow"><HiOutlineChevronRight />
                     </span>
                 </a>
             </nav>
